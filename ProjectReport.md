@@ -1,48 +1,22 @@
-# Project Report
-
-(Put your name here)
-
-## Markdown Tips
-
-If you are unfamiliar with MarkDown, check out 
-[the official documentation](https://guides.github.com/features/mastering-markdown/).
-
-Note that IntelliJ IDEA has a Markdown preview that you can access in 
-the upper-right of the editor. Also, since Markdown documents&mdash;like
-source code&mdash;should be human-readable, make sure you keep your lines
-short, as you can see I have done in my Markdown files.
-
-Please remove this subsection before submitting your report. 
+Iqra Almani
 
 ## Challenge #1 Complete
 
-(Explain your solution to Challenge #1. If it is not complete, change
-the subsection title above to "Incomplete" and explain how far you got
-and where you got stuck.)
+I changed binding in the QueryEngineModule class from FakeQueryEngine to WikipediaQueryEngine.
 
 ## Challenge #2 Complete
 
-(Explain your solution to Challenge #2. If it is not complete, change
-the subsection title above to "Incomplete" and explain how far you got
-and where you got stuck.)
+I added RevisionFormatterModule that injects the correct dependency at runtime and RevisionFormatterInterface that is implemented by all formatters. I also created AlternativeRevisionFormatter that presents the revision information in a more user-friendly way. 
 
 ## Challenge #3 Complete
 
-(Explain your solution to Challenge #3. If it is not complete, change
-the subsection title above to "Incomplete" and explain how far you got
-and where you got stuck.)
+I used mapping to get rid of the for loop. I used the Collect method to return the list as a new list.
 
 ## Reflection Question #1: Functional vs OO
 
-(Write one or more paragraphs comparing and contrasting the iterative and functional  
-approaches to string concatenation you explored in challenge #3. Which do you
-prefer, and why?)
+I prefer the iterative approach because I'm more fimiliar with it. However, I am getting to learn more about Functional approach this semester, and I think it would be good to learn more of it because it is very useful in many ways. Iterative approach at the moment is easier for me to read and understand.
 
 ## Reflection Question #2: Polymorphism and Dependency Inversion
 
-(Explain how polymorphism engendered dependency inversion in this little
-application. Be clear and precise here, as this is, in part, an assessment of
-your correct use of technical terminology.
-Consider, for example, where exactly is polymorphism used?
-Where exactly is a dependency inverted?)
+Polymorphism allowed me to switch out a generic query engine for more specific query engines and a generic revision fomatted for more specific revision formatters. This allows for dependency inversion because we can inject whatever revision formatter or query engine we want.
 
