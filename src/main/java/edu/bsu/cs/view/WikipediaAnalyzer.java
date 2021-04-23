@@ -3,7 +3,7 @@ package edu.bsu.cs.view;
 import com.google.inject.Inject;
 import edu.bsu.cs.model.QueryEngine;
 import edu.bsu.cs.model.QueryResponse;
-import edu.bsu.cs.model.Revision;
+
 import edu.bsu.cs.model.RevisionFormatterInterface;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
@@ -12,6 +12,8 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
+import java.util.stream.Collectors;
+
 
 public final class WikipediaAnalyzer extends VBox {
 
@@ -62,13 +64,10 @@ public final class WikipediaAnalyzer extends VBox {
     private void runQuery(String articleTitle) {
         try {
             QueryResponse response = engine.queryRevisions(articleTitle);
-            StringBuilder stringBuilder = new StringBuilder();
-            for (Revision revision : response.revisions()) {
-                String message = formatter.format(revision);
-                stringBuilder.append(message);
-                stringBuilder.append("\n");
-            }
-            outputArea.setText(stringBuilder.toString());
+            outputArea.setText(response.revisions().stream()
+                    .map(result -> formatter.format(result) + "\n")
+                    .collect(Collectors.joining()));
+
         } catch (IOException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Connection Problem");
